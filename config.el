@@ -6,8 +6,8 @@
       company-minimum-prefix-length 3)
 
 ;; temporarily turn it off
-;;(require 'prettier-js)
-;;(add-hook 'js2-mode-hook 'prettier-js-mode)
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
 
 (setq doom-theme 'doom-one)
 
@@ -15,7 +15,7 @@
 (setq doom-font (font-spec :family "Fira Code" :size 18))
 
 ;; Haskell stylish 
-;; (setq haskell-stylish-on-save t)
+;;(setq haskell-stylish-on-save t)
 
 ;; Enable mouse support
 ;;(unless window-system
@@ -43,10 +43,10 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-(setq tide-format-options '(:indentSize 2 :tabSize 2 :insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+;;(setq tide-format-options '(:indentSize 2 :tabSize 2 :insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+;;(add-hook 'before-save-hook 'tide-format-before-save)
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
@@ -80,3 +80,8 @@
 ;;         (typescript-mode . tide-hl-identifier-mode)
 ;;         (before-save . tide-format-before-save)))
 
+;; Set the neo-window-width to the current width of the
+  ;; neotree window, to trick neotree into resetting the
+  ;; width back to the actual window width.
+  ;; Fixes: https://github.com/jaypei/emacs-neotree/issues/262
+(setq neo-window-fixed-size nil)
